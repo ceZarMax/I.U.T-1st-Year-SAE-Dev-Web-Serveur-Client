@@ -1,0 +1,2 @@
+
+- Faire les pages d'achats et de sessions avec les cookies

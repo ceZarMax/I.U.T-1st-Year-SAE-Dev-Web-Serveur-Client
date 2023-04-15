@@ -1,0 +1,80 @@
+[
+{"type":"header","version":"5.0.4","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"cinema_sae"},
+{"type":"table","name":"cinema","database":"cinema_sae","data":
+[
+{"ID_cinema":"1","Adresse":"1 Rue du Trocadéro","Ville":"Paris"},
+{"ID_cinema":"2","Adresse":"5 Avenue du Sacré Coeur","Ville":"Bordeaux"},
+{"ID_cinema":"3","Adresse":"10 Avenue de Notre Dame","Ville":"Toulon"}
+]
+}
+,{"type":"table","name":"film","database":"cinema_sae","data":
+[
+{"ID_film":"1000","Titre":"Le Seigneur des Anneaux 1","Genre":"Fantasy","Année":"2001","Réalisateur":"Jackson"},
+{"ID_film":"2000","Titre":"Star Wars III","Genre":"Science-Fiction","Année":"2005","Réalisateur":"Lucas"},
+{"ID_film":"3000","Titre":"Jurassic Park","Genre":"Science-Fiction","Année":"1993","Réalisateur":"Spielberg"},
+{"ID_film":"4000","Titre":"Le Monde de Narnia","Genre":"Fantasy","Année":"2005","Réalisateur":"Adamson"},
+{"ID_film":"5000","Titre":"Gladiator","Genre":"Drame","Année":"2000","Réalisateur":"Scott"},
+{"ID_film":"6000","Titre":"Interstellar","Genre":"Drame","Année":"2014","Réalisateur":"Nolan"},
+{"ID_film":"7000","Titre":"Forest Gump","Genre":"Comédie dramatique","Année":"1994","Réalisateur":"Zemeckis"},
+{"ID_film":"8000","Titre":"Inception","Genre":"Science-Fiction","Année":"2010","Réalisateur":"Nolan"},
+{"ID_film":"9000","Titre":"Avengers: Endgame","Genre":"Super-Héros","Année":"2019","Réalisateur":"Anthony"},
+{"ID_film":"10000","Titre":"The Batman","Genre":"Super-héros","Année":"2022","Réalisateur":"Reeves"}
+]
+}
+,{"type":"table","name":"salle","database":"cinema_sae","data":
+[
+{"ID_salle":"11","ID_cinema":"1","Adresse":"1 Rue du Trocadéro","No_salle":"4","Capacité":"20"},
+{"ID_salle":"22","ID_cinema":"1","Adresse":"1 Rue du Trocadéro","No_salle":"5","Capacité":"40"},
+{"ID_salle":"33","ID_cinema":"1","Adresse":"1 Rue du Trocadéro","No_salle":"6","Capacité":"60"},
+{"ID_salle":"44","ID_cinema":"1","Adresse":"1 Rue du Trocadéro","No_salle":"7","Capacité":"80"},
+{"ID_salle":"55","ID_cinema":"2","Adresse":"5 Avenue du Sacré Coeur","No_salle":"4","Capacité":"20"},
+{"ID_salle":"66","ID_cinema":"2","Adresse":"5 Avenue du Sacré Coeur","No_salle":"5","Capacité":"40"},
+{"ID_salle":"77","ID_cinema":"2","Adresse":"5 Avenue du Sacré Coeur","No_salle":"6","Capacité":"60"},
+{"ID_salle":"88","ID_cinema":"2","Adresse":"5 Avenue du Sacré Coeur","No_salle":"7","Capacité":"80"},
+{"ID_salle":"99","ID_cinema":"3","Adresse":"10 Avenue de Notre Dame","No_salle":"4","Capacité":"20"},
+{"ID_salle":"111","ID_cinema":"3","Adresse":"10 Avenue de Notre Dame","No_salle":"5","Capacité":"40"},
+{"ID_salle":"112","ID_cinema":"3","Adresse":"10 Avenue de Notre Dame","No_salle":"6","Capacité":"60"},
+{"ID_salle":"113","ID_cinema":"3","Adresse":"10 Avenue de Notre Dame","No_salle":"7","Capacité":"80"}
+]
+}
+,{"type":"table","name":"seance","database":"cinema_sae","data":
+[
+{"ID_film":"1000","ID_cinema":"1","ID_salle":"11","Adresse":"1 Rue du Trocadéro","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"1","Heure_debut":"9.00","Heure_fin":"12.00"},
+{"ID_film":"2000","ID_cinema":"1","ID_salle":"22","Adresse":"1 Rue du Trocadéro","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"2","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"3000","ID_cinema":"1","ID_salle":"33","Adresse":"1 Rue du Trocadéro","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"3","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"4000","ID_cinema":"1","ID_salle":"44","Adresse":"1 Rue du Trocadéro","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"4","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"5000","ID_cinema":"1","ID_salle":"11","Adresse":"1 Rue du Trocadéro","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"5","Heure_debut":"13.00","Heure_fin":"16.00"},
+{"ID_film":"6000","ID_cinema":"1","ID_salle":"22","Adresse":"1 Rue du Trocadéro","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"6","Heure_debut":"12.00","Heure_fin":"15.30"},
+{"ID_film":"7000","ID_cinema":"1","ID_salle":"33","Adresse":"1 Rue du Trocadéro","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"7","Heure_debut":"11.00","Heure_fin":"13.00"},
+{"ID_film":"8000","ID_cinema":"1","ID_salle":"44","Adresse":"1 Rue du Trocadéro","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"8","Heure_debut":"11.00","Heure_fin":"14.00"},
+{"ID_film":"9000","ID_cinema":"1","ID_salle":"11","Adresse":"1 Rue du Trocadéro","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"9","Heure_debut":"17.00","Heure_fin":"20.00"},
+{"ID_film":"10000","ID_cinema":"1","ID_salle":"22","Adresse":"1 Rue du Trocadéro","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"10","Heure_debut":"16.00","Heure_fin":"19.00"},
+{"ID_film":"1000","ID_cinema":"2","ID_salle":"11","Adresse":"5 Avenue du Sacré Coeur","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"21","Heure_debut":"9.00","Heure_fin":"12.00"},
+{"ID_film":"2000","ID_cinema":"2","ID_salle":"22","Adresse":"5 Avenue du Sacré Coeur","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"22","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"3000","ID_cinema":"2","ID_salle":"33","Adresse":"5 Avenue du Sacré Coeur","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"23","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"4000","ID_cinema":"2","ID_salle":"44","Adresse":"5 Avenue du Sacré Coeur","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"24","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"5000","ID_cinema":"2","ID_salle":"11","Adresse":"5 Avenue du Sacré Coeur","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"25","Heure_debut":"13.00","Heure_fin":"16.00"},
+{"ID_film":"6000","ID_cinema":"2","ID_salle":"22","Adresse":"5 Avenue du Sacré Coeur","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"26","Heure_debut":"12.00","Heure_fin":"15.30"},
+{"ID_film":"7000","ID_cinema":"2","ID_salle":"33","Adresse":"5 Avenue du Sacré Coeur","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"27","Heure_debut":"11.00","Heure_fin":"13.00"},
+{"ID_film":"8000","ID_cinema":"2","ID_salle":"44","Adresse":"5 Avenue du Sacré Coeur","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"28","Heure_debut":"11.00","Heure_fin":"14.00"},
+{"ID_film":"9000","ID_cinema":"2","ID_salle":"11","Adresse":"5 Avenue du Sacré Coeur","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"29","Heure_debut":"17.00","Heure_fin":"20.00"},
+{"ID_film":"10000","ID_cinema":"2","ID_salle":"22","Adresse":"5 Avenue du Sacré Coeur","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"30","Heure_debut":"16.00","Heure_fin":"19.00"},
+{"ID_film":"1000","ID_cinema":"3","ID_salle":"11","Adresse":"10 Avenue de Notre Dame","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"31","Heure_debut":"9.00","Heure_fin":"12.00"},
+{"ID_film":"2000","ID_cinema":"3","ID_salle":"22","Adresse":"10 Avenue de Notre Dame","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"32","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"3000","ID_cinema":"3","ID_salle":"33","Adresse":"10 Avenue de Notre Dame","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"33","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"4000","ID_cinema":"3","ID_salle":"44","Adresse":"10 Avenue de Notre Dame","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"34","Heure_debut":"9.00","Heure_fin":"11.00"},
+{"ID_film":"5000","ID_cinema":"3","ID_salle":"11","Adresse":"10 Avenue de Notre Dame","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"35","Heure_debut":"13.00","Heure_fin":"16.00"},
+{"ID_film":"6000","ID_cinema":"3","ID_salle":"22","Adresse":"10 Avenue de Notre Dame","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"36","Heure_debut":"12.00","Heure_fin":"15.30"},
+{"ID_film":"7000","ID_cinema":"3","ID_salle":"33","Adresse":"10 Avenue de Notre Dame","Capacité":"60","No_places":"1","No_salle":"6","No_séance":"37","Heure_debut":"11.00","Heure_fin":"13.00"},
+{"ID_film":"8000","ID_cinema":"3","ID_salle":"44","Adresse":"10 Avenue de Notre Dame","Capacité":"80","No_places":"1","No_salle":"7","No_séance":"38","Heure_debut":"11.00","Heure_fin":"14.00"},
+{"ID_film":"9000","ID_cinema":"3","ID_salle":"11","Adresse":"10 Avenue de Notre Dame","Capacité":"20","No_places":"1","No_salle":"4","No_séance":"39","Heure_debut":"17.00","Heure_fin":"20.00"},
+{"ID_film":"10000","ID_cinema":"3","ID_salle":"22","Adresse":"10 Avenue de Notre Dame","Capacité":"40","No_places":"1","No_salle":"5","No_séance":"40","Heure_debut":"16.00","Heure_fin":"19.00"}
+]
+}
+,{"type":"table","name":"utilisateur","database":"cinema_sae","data":
+[
+
+]
+}
+]

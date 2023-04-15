@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.0.4
+- https://www.phpmyadmin.net
+-
+- Host: localhost:3306
+- Generation Time: Jun 05, 2022 at 11:09 AM
+- Server version: 5.7.24
+- PHP Version: 8.0.1
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="cinema_sae" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="cinema">
+                CREATE TABLE `cinema` (
+                  `ID_cinema` int(11) NOT NULL,
+                  `Adresse` varchar(30) NOT NULL,
+                  `Ville` varchar(30) NOT NULL,
+                  PRIMARY KEY (`ID_cinema`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="film">
+                CREATE TABLE `film` (
+                  `ID_film` decimal(10,0) NOT NULL,
+                  `Titre` varchar(30) NOT NULL,
+                  `Genre` varchar(30) NOT NULL,
+                  `Année` decimal(4,0) NOT NULL,
+                  `Réalisateur` varchar(20) NOT NULL,
+                  PRIMARY KEY (`ID_film`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="salle">
+                CREATE TABLE `salle` (
+                  `ID_salle` int(11) NOT NULL,
+                  `ID_cinema` int(11) NOT NULL,
+                  `Adresse` varchar(30) NOT NULL,
+                  `No_salle` int(11) NOT NULL,
+                  `Capacité` int(11) NOT NULL,
+                  PRIMARY KEY (`ID_salle`),
+                  KEY `ID_cinema` (`ID_cinema`),
+                  CONSTRAINT `salle_ibfk_1` FOREIGN KEY (`ID_cinema`) REFERENCES `cinema` (`ID_cinema`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="seance">
+                CREATE TABLE `seance` (
+                  `ID_film` int(11) NOT NULL,
+                  `ID_cinema` int(11) NOT NULL,
+                  `ID_salle` int(11) NOT NULL,
+                  `Adresse` varchar(30) NOT NULL,
+                  `Capacité` int(11) NOT NULL,
+                  `No_places` int(11) NOT NULL DEFAULT '1',
+                  `No_salle` int(11) NOT NULL,
+                  `No_séance` int(11) NOT NULL AUTO_INCREMENT,
+                  `Heure_debut` decimal(4,2) NOT NULL,
+                  `Heure_fin` decimal(4,2) NOT NULL,
+                  PRIMARY KEY (`No_séance`),
+                  KEY `ID_film` (`ID_film`),
+                  KEY `ID_cinema` (`ID_cinema`),
+                  KEY `ID_salle` (`ID_salle`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="utilisateur">
+                CREATE TABLE `utilisateur` (
+                  `ID` int(11) NOT NULL AUTO_INCREMENT,
+                  `Utilisateur` varchar(15) NOT NULL,
+                  `Mot_de_passe` varchar(20) NOT NULL,
+                  `Nom` varchar(20) NOT NULL,
+                  `Prénom` varchar(20) NOT NULL,
+                  `Age` int(3) NOT NULL,
+                  `Email` varchar(25) NOT NULL,
+                  `Téléphone` int(10) NOT NULL,
+                  PRIMARY KEY (`ID`,`Email`,`Téléphone`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'cinema_sae'
+    -->
+    <database name="cinema_sae">
+        <!-- Table cinema -->
+        <table name="cinema">
+            <column name="ID_cinema">1</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Ville">Paris</column>
+        </table>
+        <table name="cinema">
+            <column name="ID_cinema">2</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Ville">Bordeaux</column>
+        </table>
+        <table name="cinema">
+            <column name="ID_cinema">3</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Ville">Toulon</column>
+        </table>
+        <!-- Table film -->
+        <table name="film">
+            <column name="ID_film">1000</column>
+            <column name="Titre">Le Seigneur des Anneaux 1</column>
+            <column name="Genre">Fantasy</column>
+            <column name="Année">2001</column>
+            <column name="Réalisateur">Jackson</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">2000</column>
+            <column name="Titre">Star Wars III</column>
+            <column name="Genre">Science-Fiction</column>
+            <column name="Année">2005</column>
+            <column name="Réalisateur">Lucas</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">3000</column>
+            <column name="Titre">Jurassic Park</column>
+            <column name="Genre">Science-Fiction</column>
+            <column name="Année">1993</column>
+            <column name="Réalisateur">Spielberg</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">4000</column>
+            <column name="Titre">Le Monde de Narnia</column>
+            <column name="Genre">Fantasy</column>
+            <column name="Année">2005</column>
+            <column name="Réalisateur">Adamson</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">5000</column>
+            <column name="Titre">Gladiator</column>
+            <column name="Genre">Drame</column>
+            <column name="Année">2000</column>
+            <column name="Réalisateur">Scott</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">6000</column>
+            <column name="Titre">Interstellar</column>
+            <column name="Genre">Drame</column>
+            <column name="Année">2014</column>
+            <column name="Réalisateur">Nolan</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">7000</column>
+            <column name="Titre">Forest Gump</column>
+            <column name="Genre">Comédie dramatique</column>
+            <column name="Année">1994</column>
+            <column name="Réalisateur">Zemeckis</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">8000</column>
+            <column name="Titre">Inception</column>
+            <column name="Genre">Science-Fiction</column>
+            <column name="Année">2010</column>
+            <column name="Réalisateur">Nolan</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">9000</column>
+            <column name="Titre">Avengers: Endgame</column>
+            <column name="Genre">Super-Héros</column>
+            <column name="Année">2019</column>
+            <column name="Réalisateur">Anthony</column>
+        </table>
+        <table name="film">
+            <column name="ID_film">10000</column>
+            <column name="Titre">The Batman</column>
+            <column name="Genre">Super-héros</column>
+            <column name="Année">2022</column>
+            <column name="Réalisateur">Reeves</column>
+        </table>
+        <!-- Table salle -->
+        <table name="salle">
+            <column name="ID_salle">11</column>
+            <column name="ID_cinema">1</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="No_salle">4</column>
+            <column name="Capacité">20</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">22</column>
+            <column name="ID_cinema">1</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="No_salle">5</column>
+            <column name="Capacité">40</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">33</column>
+            <column name="ID_cinema">1</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="No_salle">6</column>
+            <column name="Capacité">60</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">44</column>
+            <column name="ID_cinema">1</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="No_salle">7</column>
+            <column name="Capacité">80</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">55</column>
+            <column name="ID_cinema">2</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="No_salle">4</column>
+            <column name="Capacité">20</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">66</column>
+            <column name="ID_cinema">2</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="No_salle">5</column>
+            <column name="Capacité">40</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">77</column>
+            <column name="ID_cinema">2</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="No_salle">6</column>
+            <column name="Capacité">60</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">88</column>
+            <column name="ID_cinema">2</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="No_salle">7</column>
+            <column name="Capacité">80</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">99</column>
+            <column name="ID_cinema">3</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="No_salle">4</column>
+            <column name="Capacité">20</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">111</column>
+            <column name="ID_cinema">3</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="No_salle">5</column>
+            <column name="Capacité">40</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">112</column>
+            <column name="ID_cinema">3</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="No_salle">6</column>
+            <column name="Capacité">60</column>
+        </table>
+        <table name="salle">
+            <column name="ID_salle">113</column>
+            <column name="ID_cinema">3</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="No_salle">7</column>
+            <column name="Capacité">80</column>
+        </table>
+        <!-- Table seance -->
+        <table name="seance">
+            <column name="ID_film">1000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">1</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">12.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">2000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">2</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">3000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">3</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">4000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">4</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">5000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">5</column>
+            <column name="Heure_debut">13.00</column>
+            <column name="Heure_fin">16.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">6000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">6</column>
+            <column name="Heure_debut">12.00</column>
+            <column name="Heure_fin">15.30</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">7000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">7</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">13.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">8000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">8</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">14.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">9000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">9</column>
+            <column name="Heure_debut">17.00</column>
+            <column name="Heure_fin">20.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">10000</column>
+            <column name="ID_cinema">1</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">1 Rue du Trocadéro</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">10</column>
+            <column name="Heure_debut">16.00</column>
+            <column name="Heure_fin">19.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">1000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">21</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">12.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">2000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">22</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">3000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">23</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">4000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">24</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">5000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">25</column>
+            <column name="Heure_debut">13.00</column>
+            <column name="Heure_fin">16.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">6000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">26</column>
+            <column name="Heure_debut">12.00</column>
+            <column name="Heure_fin">15.30</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">7000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">27</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">13.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">8000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">28</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">14.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">9000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">29</column>
+            <column name="Heure_debut">17.00</column>
+            <column name="Heure_fin">20.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">10000</column>
+            <column name="ID_cinema">2</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">5 Avenue du Sacré Coeur</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">30</column>
+            <column name="Heure_debut">16.00</column>
+            <column name="Heure_fin">19.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">1000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">31</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">12.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">2000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">32</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">3000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">33</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">4000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">34</column>
+            <column name="Heure_debut">9.00</column>
+            <column name="Heure_fin">11.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">5000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">35</column>
+            <column name="Heure_debut">13.00</column>
+            <column name="Heure_fin">16.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">6000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">36</column>
+            <column name="Heure_debut">12.00</column>
+            <column name="Heure_fin">15.30</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">7000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">33</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">60</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">6</column>
+            <column name="No_séance">37</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">13.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">8000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">44</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">80</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">7</column>
+            <column name="No_séance">38</column>
+            <column name="Heure_debut">11.00</column>
+            <column name="Heure_fin">14.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">9000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">11</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">20</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">4</column>
+            <column name="No_séance">39</column>
+            <column name="Heure_debut">17.00</column>
+            <column name="Heure_fin">20.00</column>
+        </table>
+        <table name="seance">
+            <column name="ID_film">10000</column>
+            <column name="ID_cinema">3</column>
+            <column name="ID_salle">22</column>
+            <column name="Adresse">10 Avenue de Notre Dame</column>
+            <column name="Capacité">40</column>
+            <column name="No_places">1</column>
+            <column name="No_salle">5</column>
+            <column name="No_séance">40</column>
+            <column name="Heure_debut">16.00</column>
+            <column name="Heure_fin">19.00</column>
+        </table>
+        <!-- Table utilisateur -->
+    </database>
+</pma_xml_export>
