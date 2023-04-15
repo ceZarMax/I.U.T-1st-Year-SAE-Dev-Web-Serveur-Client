@@ -42,7 +42,6 @@ Anglais)
 <br/><br/>![](https://imgur.com/dQQrxq1.jpg)
 
 **Aperçu 5 :**<br/>
-<br/>![](https://imgur.com/Zi9UPKd.png)
 <br/>![](https://imgur.com/Q2osOZh.png)
 
 **Aperçu 6 :**
