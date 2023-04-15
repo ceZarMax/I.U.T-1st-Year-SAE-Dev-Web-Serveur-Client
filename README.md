@@ -10,7 +10,7 @@
 ---
 
 
-SAE Dev Web Client/Serveur **Mettre en place une solution informatique pour l’entreprise **. </br>
+SAE Dev Web Client/Serveur **Mettre en place une solution informatique pour l’entreprise**. </br>
 
 ## ℹ️ Mise en situation 
 
